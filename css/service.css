@@ -1,0 +1,259 @@
+section.main {
+  color: white;
+  min-height: 100vh;
+  background: #151515;
+}
+section.main div.container {
+  position: relative;
+  grid-column: full;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  z-index: 1;
+}
+section.main div.text {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  grid-gap: var(--text-gap-big);
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+  padding-top: calc(var(--section-gap) + 60px);
+  padding-bottom: var(--section-gap);
+  max-width: 960px;
+}
+section.main div.text div.title {
+  display: grid;
+  justify-items: center;
+  grid-gap: 10px;
+}
+section.main div.text span {
+  max-width: 640px;
+}
+section.main img.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+section.main button {
+  background: white;
+  color: black;
+}
+
+section.subservices {
+  margin-top: var(--section-gap);
+}
+section.subservices div.container {
+  grid-column: full;
+  display: grid;
+  grid-gap: calc(var(--block-gap) * 2);
+}
+section.subservices span.large {
+  display: block;
+  max-width: 960px;
+  justify-self: center;
+  text-align: center;
+}
+section.subservices div.subservice {
+  display: grid;
+  grid-gap: var(--text-gap-big);
+  max-width: 640px;
+  justify-self: center;
+  justify-items: center;
+  text-align: center;
+}
+section.subservices div.subservice h2 {
+  text-align: center;
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+}
+section.subservices div.subservice button {
+  margin-top: 10px;
+}
+section.subservices span {
+  padding-left: var(--gap);
+  padding-right: var(--gap);
+}
+section.subservices div.gallery {
+  height: 100vh;
+}
+
+section.details {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+  border-top: 1px solid rgba(15, 15, 15, 0.15);
+  border-bottom: 1px solid rgba(15, 15, 15, 0.15);
+  text-align: center;
+}
+section.details div.container {
+  display: grid;
+  justify-items: center;
+  grid-gap: var(--text-gap-big);
+}
+section.details span {
+  display: block;
+  color: rgba(15, 15, 15, 0.65);
+  max-width: 960px;
+}
+section.details b {
+  font-weight: 300;
+  font-size: inherit;
+  color: #151515;
+}
+
+section.process {
+  padding-top: var(--section-gap);
+}
+section.process div.container {
+  display: grid;
+  justify-items: center;
+  grid-gap: calc(var(--block-gap) * 2);
+}
+section.process div.description {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  max-width: 960px;
+  grid-gap: var(--text-gap-small);
+}
+section.process div.description span {
+  max-width: 640px;
+}
+section.process div.description button {
+  margin-top: 10px;
+}
+section.process div.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 960px) {
+  section.process div.list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  section.process div.list {
+    grid-template-columns: 1fr;
+  }
+}
+section.process div.list div.step {
+  display: grid;
+  -ms-flex-line-pack: start;
+      align-content: start;
+  grid-gap: var(--text-gap-small);
+  padding: var(--text-gap-big) var(--gap);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 640px) {
+  section.process div.list div.step {
+    border-left: unset;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+section.faq {
+  padding-top: var(--section-gap);
+  padding-bottom: var(--section-gap);
+}
+section.faq div.container {
+  display: grid;
+  justify-items: center;
+  grid-gap: var(--block-gap);
+}
+section.faq div.title {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  max-width: 960px;
+  grid-gap: var(--text-gap-small);
+}
+section.faq div.title span {
+  max-width: 640px;
+}
+section.faq div.list {
+  max-width: 960px;
+}
+section.faq div.accordion {
+  border-bottom: 1px solid rgba(15, 15, 15, 0.15);
+}
+section.faq div.accordion div.accordion_caption {
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  grid-gap: var(--text-gap-big);
+  cursor: pointer;
+  padding-top: var(--text-gap-big);
+  padding-bottom: var(--text-gap-big);
+}
+section.faq div.accordion div.accordion_caption div.icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+}
+@media (max-width: 640px) {
+  section.faq div.accordion div.accordion_caption div.icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+section.faq div.accordion div.accordion_caption div.icon div:first-child {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: #151515;
+}
+section.faq div.accordion div.accordion_caption div.icon div:last-child {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 100%;
+  border-radius: 2px;
+  background: #151515;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+section.faq div.accordion div.accordion_wrap {
+  padding-bottom: var(--text-gap-big);
+}
+section.faq div.accordion div.accordion_wrap ul {
+  list-style-position: outside;
+  padding-left: 24px;
+}
+section.faq div.accordion div.accordion_wrap ul li {
+  list-style-type: disc;
+}
+section.faq div.accordion.open div.accordion_caption div.icon div:last-child {
+  height: 0;
+}
+section.faq div.accordion.open div.accordion_content {
+  display: grid;
+}
+section.faq div.load {
+  cursor: pointer;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 15px;
+}
+
+section.process {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}/*# sourceMappingURL=service.css.map */

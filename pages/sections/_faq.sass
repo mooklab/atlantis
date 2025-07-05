@@ -1,0 +1,83 @@
+section.faq
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        justify-items: center
+        grid-gap: var(--block-gap)
+
+    div.title
+        display: grid
+        justify-items: center
+        text-align: center
+        max-width: 960px
+        grid-gap: var(--text-gap-small)
+
+        span
+            max-width: 640px
+
+    div.list
+        max-width: 960px
+
+    div.accordion
+        border-bottom: 1px solid rgba(15,15,15,0.15)
+
+        div.accordion_caption
+            display: grid
+            grid-template-columns: 1fr max-content
+            grid-gap: var(--text-gap-big)
+            cursor: pointer
+            padding-top: var(--text-gap-big)
+            padding-bottom: var(--text-gap-big)
+
+            div.icon
+                position: relative
+                width: 26px
+                height: 26px
+                +screen(s)
+                    width: 18px
+                    height: 18px
+                div:first-child
+                    position: absolute
+                    top: calc(50% - 1px)
+                    left: 0
+                    width: 100%
+                    height: 2px
+                    border-radius: 2px
+                    background: #151515
+                div:last-child
+                    position: absolute
+                    top: 50%
+                    left: calc(50% - 1px)
+                    width: 2px
+                    height: 100%
+                    border-radius: 2px
+                    background: #151515
+                    transition: all 0.3s
+                    transform: translateY(-50%)
+
+        div.accordion_wrap
+            padding-bottom: var(--text-gap-big)
+
+            ul
+                list-style-position: outside
+                padding-left: 24px
+                li
+                    list-style-type: disc
+
+        &.open
+            div.accordion_caption
+                div.icon
+                    div:last-child
+                        height: 0
+            div.accordion_content
+                display: grid
+
+    div.load
+        cursor: pointer
+        display: grid
+        grid-auto-flow: column
+        grid-auto-columns: max-content
+        align-items: center
+        grid-gap: 15px

@@ -1,0 +1,13 @@
+extends common/pug/_layout.pug
+include common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/index.css")
+
+block content
+    include sections/index/_main.pug
+    include sections/index/_services.pug
+    include sections/_advantages.pug
+    include sections/index/_gallery.pug
+    include sections/index/_about.pug
+    include sections/_articles.pug

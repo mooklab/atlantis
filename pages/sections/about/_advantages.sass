@@ -1,0 +1,21 @@
+section.process
+    padding-top: var(--section-gap)
+    border-bottom: 1px solid rgba(15,15,15,0.15)
+
+    div.list
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        +screen(m)
+            grid-template-columns: repeat(2, 1fr)
+        +screen(s)
+            grid-template-columns: 1fr
+
+        div.step
+            display: grid
+            align-content: start
+            grid-gap: var(--text-gap-small)
+            padding: var(--text-gap-big) var(--gap)
+            border-left: 1px solid rgba(0,0,0,0.1)
+            +screen(s)
+                border-left: unset
+                border-top: 1px solid rgba(0,0,0,0.1)

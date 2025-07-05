@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap')
+
+\:root
+    --gap: 40px
+    --full: minmax(var(--gap), 1fr)
+    --content-maxwidth: #{$content-maxwidth}
+    --content: min(var(--content-maxwidth), 100% - var(--gap) * 2)
+    --breakout: minmax(0, 190px)
+
+    --section-gap: 200px
+    --block-gap: 60px
+    --text-gap-big: 40px
+    --text-gap-small: 20px
+
+    +screen(l)
+        --section-gap: 160px
+
+        --gap: 30px
+    +screen(m)
+        --section-gap: 120px
+        --block-gap: 50px
+        --text-gap-big: 30px
+        --text-gap-small: 15px
+        --gap: 20px
+    +screen(s)
+        --section-gap: 80px
+        --block-gap: 30px
+
+*
+    font-family: "Geologica", sans-serif
+    font-optical-sizing: auto
+    +font(14px, 16px)
+    line-height: 150%
+    text-size-adjust: 100%
+    font-weight: 100
+
+html, body
+    scroll-behavior: smooth
+    appearance: none
+    overflow-x: clip
+
+section, header, footer
+    width: 100%
+    position: relative
+    display: grid
+    grid-template-columns: [full-start] var(--full) [breakout-start] var(--breakout) [content-start] var(--content) [content-end] var(--breakout) [breakout-end] var(--full) [full-end]
+    & > *
+        grid-column: content
+    .full
+        grid-column: full
+    .breakout
+        grid-column: breakout

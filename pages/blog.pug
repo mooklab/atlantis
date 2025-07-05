@@ -1,0 +1,9 @@
+extends common/pug/_layout.pug
+
+block links
+    link(rel="stylesheet", href="css/blog.css")
+
+block content
+    include sections/blog/_main.pug
+    include sections/blog/_articles.pug
+    include sections/_subscribe.pug

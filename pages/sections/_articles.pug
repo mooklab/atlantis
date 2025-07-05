@@ -1,0 +1,29 @@
+include ../common/pug/_mixins.pug
+
+section.articles
+    div.container
+        h2 #[b Последние] #[br]публикации
+
+        div.tabs
+            div.tabs_captions
+                div.tab_caption.opened: span.medium Статьи
+                div.tab_caption: span.medium Новости
+            div.tabs_contents
+                div.tab_content.opened
+                    div.swiper
+                        div.swiper-wrapper
+                            div.swiper-slide: +article_card('Статья', 'images/32.webp', 'Преимущества страхового брокера', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Статья', 'images/15.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Статья', 'images/23.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Статья', 'images/32.webp', 'Преимущества страхового брокера', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Статья', 'images/15.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Статья', 'images/23.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                div.tab_content
+                    div.swiper
+                        div.swiper-wrapper
+                            div.swiper-slide: +article_card('Новость', 'images/19.webp', 'Преимущества страхового брокера', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Новость', 'images/12.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Новость', 'images/7.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Новость', 'images/19.webp', 'Преимущества страхового брокера', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Новость', 'images/12.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')
+                            div.swiper-slide: +article_card('Новость', 'images/7.webp', 'Что нужно знать', 'Преимущества страхового брокера перед прямым обращением в страховую компанию')

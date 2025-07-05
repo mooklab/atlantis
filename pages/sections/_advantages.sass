@@ -1,0 +1,107 @@
+section.advantages
+    margin-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        justify-items: center
+        grid-gap: calc(var(--block-gap) * 2)
+
+    div.description
+        display: grid
+        justify-items: center
+        text-align: center
+        max-width: 960px
+        grid-gap: var(--text-gap-small)
+
+        span
+            max-width: 640px
+
+        button
+            margin-top: 10px
+
+    div.slider
+        position: relative
+        display: grid
+        width: 100%
+        max-width: 1280px
+
+        div.swiper
+            overflow: visible
+            width: 100%
+            min-width: 0
+
+    div.swiper-slide
+        div.image
+            display: grid
+            align-items: center
+            justify-items: center
+            aspect-ratio: 2 / 1
+            width: 100%
+            +screen(s)
+                aspect-ratio: 4 / 3
+            img
+                aspect-ratio: 2 / 1
+                width: 85%
+                object-fit: cover
+                transition: all 0.5s
+                +screen(s)
+                    aspect-ratio: 4 / 3
+
+        div.text
+            display: grid
+            grid-gap: var(--text-gap-small)
+            text-align: center
+            max-width: 640px
+            margin-top: 120px
+            opacity: 0
+            transition: opacity 0.3s
+            +screen(m)
+                margin-top: 80px
+
+    div.swiper-slide-active
+        display: grid
+        justify-items: center
+        div.image
+            img
+                width: 100%
+        div.text
+            opacity: 1
+
+    div.swiper-pagination
+        pointer-events: none
+        position: absolute
+        top: 0
+        bottom: unset
+        left: unset
+        right: unset
+        width: 100%
+        aspect-ratio: 2 / 1
+        display: grid
+        grid-auto-flow: column
+        justify-content: center
+        align-items: end
+        grid-gap: var(--text-gap-small)
+        margin-top: calc(60px + 5px)
+        +screen(m)
+            margin-top: calc(40px + 5px)
+        +screen(s)
+            aspect-ratio: 4 / 3
+        span
+            pointer-events: auto
+            opacity: 1
+            background: #151515
+            width: 5px
+            height: 5px
+            &::after
+                content: ''
+                display: block
+                margin-left: -9px
+                margin-top: -9px
+                width: 21px
+                height: 21px
+                border: 1px solid #151515
+                border-radius: 999px
+                opacity: 0
+            &.swiper-pagination-bullet-active
+                &::after
+                    opacity: 1

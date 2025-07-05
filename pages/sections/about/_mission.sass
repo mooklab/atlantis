@@ -1,0 +1,27 @@
+section.mission
+
+    div.container
+        grid-column: full
+
+    div.image
+        display: grid
+        align-items: center
+        grid-template-columns: repeat(2, 1fr)
+        +screen(m)
+            grid-template-columns: 1fr
+            grid-gap: var(--text-gap-small)
+
+        div.text
+            display: grid
+            grid-gap: var(--text-gap-small)
+            padding: 120px
+            box-sizing: content-box
+            max-width: 640px
+            +screen(m)
+                padding: var(--gap)
+
+        img
+            max-width: 100%
+            min-height: 100%
+            aspect-ratio: 4 / 3
+            object-fit: cover

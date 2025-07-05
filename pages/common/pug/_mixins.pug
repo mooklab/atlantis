@@ -1,0 +1,14 @@
+mixin article_card(tag, image, title, text)
+    div.article_card
+        div.image
+            span.tag= tag
+            img(src=image, alt=title)
+        div.text
+            h4= title 
+            span= text
+            a(href="article.html").underline Читать
+
+mixin gallery(...images)
+    div.gallery
+        each image in images
+            div.image: img(src=image, alt="")

@@ -1,0 +1,112 @@
+section.services
+    margin-bottom: var(--section-gap)
+
+    h2
+        text-align: center
+        margin-bottom: var(--block-gap)
+
+    div.tabs
+        div.tabs_captions
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            justify-content: center
+            grid-gap: 60px
+            border-bottom: 1px solid rgba(15,15,15,0.15)
+            margin-bottom: var(--block-gap)
+            max-width: 960px
+            margin-left: auto
+            margin-right: auto
+            div.tab_caption
+                cursor: pointer
+                padding: 15px 0
+                margin-bottom: -1px
+                &.opened
+                    border-bottom: 1px solid #151515 !important
+                &:hover
+                    border-bottom: 1px solid rgba(15,15,15,0.3)
+        div.tab_content
+            display: none
+            &.opened
+                display: block
+
+    div.swiper-slide
+        aspect-ratio: 21 / 9
+        background: #151515
+        color: white
+        +screen(l)
+            aspect-ratio: 16 / 9
+        +screen(m)
+            aspect-ratio: 4 / 3
+        +screen(s)
+            aspect-ratio: 1 / 1
+        +screen(xs)
+            aspect-ratio: 3 / 4
+
+        div.text
+            position: absolute
+            top: 50%
+            right: 0
+            display: grid
+            grid-gap: var(--text-gap-small)
+            max-width: 480px
+            padding: 80px
+            box-sizing: content-box
+            transform: translateY(-50%)
+            +screen(m)
+                position: relative
+                text-align: center
+                justify-items: center
+                right: unset
+                // transform: unset
+                padding-bottom: 125px
+                padding: 80px 40px
+                margin: 0 auto
+            a.button
+                margin-top: 20px
+                background: white
+                color: #151515
+
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            z-index: -1
+
+    div.swiper-pagination
+        pointer-events: none
+        position: absolute
+        top: unset
+        bottom: 60px
+        left: 50%
+        right: unset
+        width: unset
+        display: grid
+        grid-auto-flow: column
+        justify-items: end
+        grid-gap: var(--text-gap-small)
+        transform: translateX(-50%)
+        +screen(m)
+            bottom: 40px
+        span
+            pointer-events: auto
+            opacity: 1
+            background: white
+            width: 5px
+            height: 5px
+            &::after
+                content: ''
+                display: block
+                margin-left: -9px
+                margin-top: -9px
+                width: 21px
+                height: 21px
+                border: 1px solid white
+                border-radius: 999px
+                opacity: 0
+            &.swiper-pagination-bullet-active
+                &::after
+                    opacity: 1

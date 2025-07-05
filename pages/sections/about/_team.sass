@@ -1,0 +1,64 @@
+section.team
+    padding-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: var(--block-gap)
+
+    div.title
+        display: grid
+        justify-items: center
+        grid-gap: var(--text-gap-small)
+        text-align: center
+
+    div.person
+        img
+            width: 100%
+            aspect-ratio: 3 / 4
+            object-fit: cover
+
+        div.text
+            display: grid
+            grid-gap: var(--text-gap-small)
+            padding: var(--gap)
+            border-left: 1px solid rgba(0,0,0,0.1)
+
+    div.swiper
+        width: 100%
+        min-width: 0
+        +screen(l)
+            overflow: visible
+
+    div.swiper-pagination
+        pointer-events: none
+        position: relative
+        top: 0
+        bottom: unset
+        left: unset
+        right: unset
+        width: 100%
+        height: max-content
+        display: grid
+        grid-auto-flow: column
+        justify-content: center
+        align-items: end
+        grid-gap: var(--text-gap-small)
+        span
+            pointer-events: auto
+            opacity: 1
+            background: #151515
+            width: 5px
+            height: 5px
+            &::after
+                content: ''
+                display: block
+                margin-left: -9px
+                margin-top: -9px
+                width: 21px
+                height: 21px
+                border: 1px solid #151515
+                border-radius: 999px
+                opacity: 0
+            &.swiper-pagination-bullet-active
+                &::after
+                    opacity: 1

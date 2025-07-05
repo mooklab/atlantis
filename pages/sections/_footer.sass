@@ -1,0 +1,55 @@
+footer
+    padding-top: 80px
+    padding-bottom: 80px
+    border-top: 1px solid rgba(0,0,0,0.1)
+
+    div.container
+        display: grid
+        grid-gap: var(--block-gap)
+
+    div.top
+        display: grid
+        align-items: start
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: var(--block-gap) 20px
+        +screen(m)
+            grid-template-columns: repeat(2, 1fr)
+        +screen(s)
+            grid-template-columns: 1fr
+
+        div.main
+            display: grid
+            grid-gap: 30px
+            span.adress
+                font-size: 18px
+                text-transform: uppercase
+            div.contacts
+                display: grid
+                a.phone
+                    font-size: 24px
+
+        div.services_private,
+        div.services_business
+            display: grid
+            grid-gap: var(--text-gap-small)
+            ul
+                display: grid
+                grid-gap: 10px
+
+        div.other
+            ul
+                display: grid
+                grid-gap: 20px
+
+    div.bottom
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: 10px
+        +screen(m)
+            grid-template-columns: repeat(2, 1fr)
+        +screen(s)
+            grid-template-columns: 1fr
+        span
+            opacity: 0.5
+            +screen(s)
+                order: 999

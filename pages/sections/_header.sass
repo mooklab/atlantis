@@ -1,0 +1,51 @@
+header
+    color: white
+    padding-top: 30px
+    padding-bottom: 30px
+    position: absolute
+    z-index: 9
+
+    div.container
+        display: grid
+        align-items: center
+        grid-template-columns: 1fr max-content 1fr
+        +screen(m)
+            grid-template-columns: repeat(3, max-content)
+            justify-content: space-between
+        +screen(xs)
+            grid-template-columns: repeat(2, max-content)
+
+    a.logotype
+        width: 180px
+        +screen(m)
+            width: 140px
+            order: 1
+        img
+            width: 100%
+
+    div.menu
+        display: grid
+        justify-content: start
+        grid-auto-flow: column
+        align-items: center
+        text-transform: uppercase
+        grid-gap: 15px
+        +screen(m)
+            order: 3
+
+    div.contacts
+        display: grid
+        align-items: center
+        grid-auto-flow: column
+        grid-auto-columns: max-content
+        justify-content: end
+        grid-gap: 30px
+        +screen(m)
+            order: 2
+        +screen(xs)
+            display: none
+        a
+            font-size: 20px
+            &:first-child
+                +screen(m)
+                    display: none
