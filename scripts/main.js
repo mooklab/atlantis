@@ -270,7 +270,7 @@ window.onload = () => {
     })
 
 
-    descriptions = document.querySelectorAll('div.description')
+    descriptions = document.querySelectorAll('div.description, section.details div.container')
     descriptions.forEach(description => {
         childrens = description.querySelectorAll(':scope > *')
         let gap = 30
@@ -295,11 +295,43 @@ window.onload = () => {
     article_cards = document.querySelectorAll('div.article_card')
     article_cards.forEach((card, index) => {
         gsap.fromTo(card, {
-            y: 50 * index
+            y: 50 * (index + 1)
         }, {
             y: 0,
             scrollTrigger: {
                 trigger: card,
+                start: 'top 75%',
+                end: () => "+=" + window.innerHeight,
+                toggleActions: 'play none none reverse'
+            }
+        })
+    })
+
+
+    steps = document.querySelectorAll('div.step')
+    steps.forEach((step, index) => {
+        gsap.fromTo(step, {
+            y: 50 * (index + 1)
+        }, {
+            y: 0,
+            scrollTrigger: {
+                trigger: step,
+                start: 'top 75%',
+                end: () => "+=" + window.innerHeight,
+                toggleActions: 'play none none reverse'
+            }
+        })
+    })
+
+
+    persons = document.querySelectorAll('div.person')
+    persons.forEach((person, index) => {
+        gsap.fromTo(person, {
+            y: 50 * (index + 1)
+        }, {
+            y: 0,
+            scrollTrigger: {
+                trigger: person,
                 start: 'top 75%',
                 end: () => "+=" + window.innerHeight,
                 toggleActions: 'play none none reverse'
@@ -333,5 +365,17 @@ window.onload = () => {
         })
     })
 
+    about = document.querySelector('section.about img')
+    gsap.fromTo(about, {
+        scale: 1.3
+    }, {
+        scale: 1,
+        scrollTrigger: {
+            trigger: about,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            scrub: true,
+        }
+    })
 
 }

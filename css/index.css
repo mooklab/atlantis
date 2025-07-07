@@ -441,6 +441,9 @@ section.about img {
   aspect-ratio: 21/9;
   -o-object-fit: cover;
      object-fit: cover;
+  -webkit-transform-origin: top center;
+      -ms-transform-origin: top center;
+          transform-origin: top center;
 }
 @media (max-width: 960px) {
   section.about img {
