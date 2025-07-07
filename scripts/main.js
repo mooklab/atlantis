@@ -315,7 +315,7 @@ window.onload = () => {
         }, {
             y: 0,
             scrollTrigger: {
-                trigger: step,
+                trigger: step.parentElement,
                 start: 'top 75%',
                 end: () => "+=" + window.innerHeight,
                 toggleActions: 'play none none reverse'
@@ -331,7 +331,7 @@ window.onload = () => {
         }, {
             y: 0,
             scrollTrigger: {
-                trigger: person,
+                trigger: person.parentElement,
                 start: 'top 75%',
                 end: () => "+=" + window.innerHeight,
                 toggleActions: 'play none none reverse'
