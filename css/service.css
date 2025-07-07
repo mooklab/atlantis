@@ -13,6 +13,44 @@ section.main div.container {
   justify-items: center;
   z-index: 1;
 }
+section.main div.contacts {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  section.main div.contacts {
+    grid-template-columns: 1fr;
+  }
+}
+section.main div.contacts div.adress,
+section.main div.contacts div.socials,
+section.main div.contacts button {
+  grid-column: 2 span;
+}
+@media (max-width: 480px) {
+  section.main div.contacts div.adress,
+  section.main div.contacts div.socials,
+  section.main div.contacts button {
+    grid-column: 1 span;
+  }
+}
+section.main div.contacts span {
+  opacity: 0.5;
+}
+section.main div.contacts div {
+  display: grid;
+  grid-gap: 10px;
+}
+section.main div.contacts div.socials {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 30px;
+}
 section.main div.text {
   display: grid;
   justify-items: center;
@@ -29,8 +67,15 @@ section.main div.text div.title {
   justify-items: center;
   grid-gap: 10px;
 }
+section.main div.text h1 b {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(255, 255, 255, 0.5)), color-stop(50%, rgb(255, 255, 255)));
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, rgb(255, 255, 255) 50%);
+}
 section.main div.text span {
   max-width: 640px;
+}
+section.main div.text > * {
+  opacity: 0;
 }
 section.main img.background {
   position: absolute;
@@ -252,6 +297,13 @@ section.faq div.load {
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 15px;
+}
+section.faq div.load img {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+section.faq div.load:hover img {
+  rotate: 360deg;
 }
 
 section.process {

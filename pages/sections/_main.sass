@@ -11,6 +11,35 @@ section.main
         justify-items: center
         z-index: 1
 
+    div.contacts
+        display: grid
+        justify-items: center
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: 40px
+        width: 100%
+        +screen(xs)
+            grid-template-columns: 1fr
+
+        div.adress,
+        div.socials,
+        button
+            grid-column: 2 span
+            +screen(xs)
+                grid-column: 1 span
+
+        span
+            opacity: 0.5
+
+        div
+            display: grid
+            grid-gap: 10px
+
+        div.socials
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            grid-gap: 30px
+
     div.text
         display: grid
         justify-items: center
@@ -25,8 +54,13 @@ section.main
             display: grid
             justify-items: center
             grid-gap: 10px
+        h1
+            b
+                background-image: linear-gradient(90deg, rgba(255,255,255,0.5) 50%, rgba(255,255,255,1) 50%)
         span
             max-width: 640px
+        & > *
+            opacity: 0
 
     img.background
         position: absolute

@@ -56,7 +56,7 @@ class Accordion {
 
 }
 
-new Swiper('section.main div.swiper', {
+const main_swiper = new Swiper('section.main div.swiper', {
     touchReleaseOnEdges: true,
     pagination: {
         el: 'section.main div.swiper-pagination',
@@ -172,95 +172,166 @@ accordions.forEach(element => {
 })
 
 
-// setTimeout(function () {
-//     let split = SplitText.create(".split", { type: "chars,words,lines" });
-//     gsap.from(split.lines, {
-//         rotationX: -100,
-//         transformOrigin: "50% 50% -160px",
-//         opacity: 0,
-//         duration: 0.5,
-//         ease: "power3",
-//         stagger: 0.05,
-//         scrollTrigger: {
-//             trigger: ".split",
-//             start: "top 80%",
-//             end: "top 35%",
-//             scrub: true,
-//             // markers: true, 
-//             // toggleActions: "play play reverse reverse"
-//         }
-//     });
-// }, 1000)
+
 
 
 window.onload = () => {
-    // const tl = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: 'section.gallery',
-    //         scrub: true,
-    //         start: 'top top',
-    //         end: 'bottom top',
-    //         invalidateOnRefresh: true,
-    //         pin: true,
-    //         // markers: true
-    //     }
-    // })
 
-    // tl.addLabel('start').from('section.gallery', { scale: 0.9 }).addLabel('end')
+    /*
+    ** Main Screen
+    */
+    let main_timeline = gsap.timeline()
+    let main_text_elements = document.querySelectorAll('section.main div.container > div.text > *, section.main div.swiper-slide-active > div.text > *')
+
+    main_timeline
+        .to('header a.logotype', { opacity: 1, duration: 1 })
+        .to('header div.menu, header div.contacts', { opacity: 1, duration: 1 }, "-=0.7")
+        .to('section.main div.swiper-pagination', { opacity: 1 })
+        .to('section.main h1 b', { backgroundPosition: 0 })
+
+    main_text_elements.forEach(element => {
+        main_timeline.fromTo(element, { opacity: 0, y: 50, duration: 1 }, { opacity: 1, y: 0, duration: 1 }, "-=0.9")
+    })
+
+    main_swiper.on('slideChangeTransitionEnd', () => {
+        let active_slide_elements = document.querySelectorAll('section.main div.swiper-slide-active div.text > *')
+        let nonactive_slide_elements = document.querySelectorAll('section.main div.swiper-slide:not(.swiper-slide-active) div.text > *')
+        nonactive_slide_elements.forEach(element => element.style.opacity = 0)
+
+        gsap.fromTo(active_slide_elements[0], { opacity: 0, y: 50, duration: 1 }, { opacity: 1, y: 0, duration: 1 })
+        active_slide_elements.forEach((element, index) => {
+            if (index === 0) return
+            gsap.fromTo(element, { opacity: 0, y: 50, duration: 1 }, { opacity: 1, y: 0, duration: 1 }, "-=0.9")
+        })
+    })
+
+
+
+
+
+
+    titles = document.querySelectorAll('h2 b, h3 b, h4 b, h5 b')
+    titles.forEach(title => {
+        gsap.to(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 75%',
+                end: '+=500',
+                toggleActions: 'play none none reverse',
+                // scrub: true,
+            },
+            delay: 0.5,
+            backgroundPosition: 0
+        })
+    })
 
     // setTimeout(function () {
-    //     tl.scrollTrigger.refresh()
-    // }, 500)
+
+    //     galleries = document.querySelectorAll('section.gallery')
+    //     galleries.forEach(gallery => {
+    //         gsap.from(gallery, {
+    //             scrollTrigger: {
+    //                 trigger: gallery,
+    //                 start: 'top top',
+    //                 end: '+=1000',
+    //                 // scrub: true,
+    //                 pin: true,
+    //                 markers: true
+    //             },
+    //             scale: 0.9
+    //         })
+    //     });
+    // }, 1000)
 
 
-    // window.addEventListener('resize', () => {
-    //     setTimeout(function () {
-    //         tl.scrollTrigger.refresh()
-    //     }, 500)
-    // })
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: 'section.gallery',
+            scrub: true,
+            start: 'top top',
+            end: 'bottom top',
+            invalidateOnRefresh: true,
+            pin: true,
+            // markers: true
+        }
+    })
+
+    tl.addLabel('start').from('section.gallery', { scale: 0.9 }).addLabel('end')
+
+    setTimeout(function () {
+        tl.scrollTrigger.refresh()
+    }, 500)
+
+
+    window.addEventListener('resize', () => {
+        setTimeout(function () {
+            tl.scrollTrigger.refresh()
+        }, 500)
+    })
+
+
+    descriptions = document.querySelectorAll('div.description')
+    descriptions.forEach(description => {
+        childrens = description.querySelectorAll(':scope > *')
+        let gap = 30
+        childrens.forEach((child, index) => {
+            gsap.fromTo(child, {
+                alpha: 0,
+                y: gap * index
+            }, {
+                alpha: 1,
+                y: 0,
+                scrollTrigger: {
+                    trigger: description,
+                    start: 'top 75%',
+                    end: '+=500',
+                    toggleActions: 'play none none reverse'
+                }
+            })
+        })
+    })
+
+
+    article_cards = document.querySelectorAll('div.article_card')
+    article_cards.forEach((card, index) => {
+        gsap.fromTo(card, {
+            y: 50 * index
+        }, {
+            y: 0,
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 75%',
+                end: () => "+=" + window.innerHeight,
+                toggleActions: 'play none none reverse'
+            }
+        })
+    })
 
 
 
+    questions = document.querySelectorAll('section.faq div.accordion')
+    questions.forEach(question => {
+        title = question.querySelector('h4')
+        icon = question.querySelector('div.icon')
+        trigger = {
+            trigger: question,
+            start: 'top 85%',
+            end: "+=500",
+            scrub: true
+        }
+        gsap.fromTo(title, {
+            x: -50
+        }, {
+            x: 0,
+            scrollTrigger: trigger
+        })
+        gsap.fromTo(icon, {
+            x: 50
+        }, {
+            x: 0,
+            scrollTrigger: trigger
+        })
+    })
 
-    // const split = SplitText.create(".gsap_title", { type: "chars, words" });
-    // gsap.from(split.chars, {
-    //     x: '-50px',
-    //     scrollTrigger: {
-    //         trigger: '.gsap_title',
-    //         start: 'top 75%',
-    //         end: '+=300',
-    //         scrub: true,
-    //         markers: true
-    //     }
-    // })
+
 }
-
-
-
-
-
-
-// const tl = gsap.timeline({
-//     scrollTrigger: {
-//         trigger: 'section.gallery',
-//         scrub: true,
-//         start: 'top top',
-//         end: 'bottom top',
-//         invalidateOnRefresh: true,
-//         pin: true,
-//         // markers: true
-//     }
-// })
-
-// tl.addLabel('start').from('section.gallery', { scale: 0.9 }).addLabel('end')
-
-// setTimeout(function () {
-//     tl.scrollTrigger.refresh()
-// }, 500)
-
-
-// window.addEventListener('resize', () => {
-//     setTimeout(function () {
-//         tl.scrollTrigger.refresh()
-//     }, 500)
-// })

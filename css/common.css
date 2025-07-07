@@ -190,10 +190,16 @@ h1 *, h2 *, h3 *, h4 *, h5 * {
   line-height: inherit;
 }
 h1 b, h2 b, h3 b, h4 b, h5 b {
-  opacity: 0.5;
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
+  color: transparent;
+  background-position: 100%;
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(0, 0, 0, 0.3)), color-stop(50%, rgb(0, 0, 0)));
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 50%, rgb(0, 0, 0) 50%);
 }
 
 h1 {
@@ -478,6 +484,34 @@ div.swiper {
           user-select: none;
 }
 
+div.swiper-pagination {
+  pointer-events: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: var(--text-gap-small);
+}
+div.swiper-pagination span {
+  pointer-events: auto;
+  opacity: 1;
+  background: #151515;
+  width: 5px;
+  height: 5px;
+}
+div.swiper-pagination span::after {
+  content: "";
+  display: block;
+  margin-left: -9px;
+  margin-top: -9px;
+  width: 21px;
+  height: 21px;
+  border: 1px solid #151515;
+  border-radius: 999px;
+  opacity: 0;
+}
+div.swiper-pagination span.swiper-pagination-bullet-active::after {
+  opacity: 1;
+}
+
 html:has(dialog[open]) {
   overflow-y: hidden;
   margin-right: var(--scrollbar-width);
@@ -530,15 +564,49 @@ footer div.top div.main {
   display: grid;
   grid-gap: 30px;
 }
+footer div.top div.main a.logotype {
+  width: 180px;
+}
+@media (max-width: 960px) {
+  footer div.top div.main a.logotype {
+    width: 140px;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+footer div.top div.main a.logotype img {
+  width: 100%;
+}
 footer div.top div.main span.adress {
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
+}
+@media (min-width: 576px) {
+  footer div.top div.main span.adress {
+    font-size: calc(0.0016891892 * 100vw + 15.027027027px);
+  }
+}
+@media (min-width: 1760px) {
+  footer div.top div.main span.adress {
+    font-size: 18px;
+  }
 }
 footer div.top div.main div.contacts {
   display: grid;
 }
 footer div.top div.main div.contacts a.phone {
-  font-size: 24px;
+  font-size: 18px;
+}
+@media (min-width: 576px) {
+  footer div.top div.main div.contacts a.phone {
+    font-size: calc(0.0050675676 * 100vw + 15.0810810811px);
+  }
+}
+@media (min-width: 1760px) {
+  footer div.top div.main div.contacts a.phone {
+    font-size: 24px;
+  }
 }
 footer div.top div.services_private,
 footer div.top div.services_business {
@@ -611,6 +679,7 @@ header div.container {
   }
 }
 header a.logotype {
+  opacity: 0;
   width: 180px;
 }
 @media (max-width: 960px) {
@@ -625,6 +694,7 @@ header a.logotype img {
   width: 100%;
 }
 header div.menu {
+  opacity: 0;
   display: grid;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -644,6 +714,7 @@ header div.menu {
   }
 }
 header div.contacts {
+  opacity: 0;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;

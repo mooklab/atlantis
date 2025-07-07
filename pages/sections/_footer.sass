@@ -20,13 +20,20 @@ footer
         div.main
             display: grid
             grid-gap: 30px
+            a.logotype
+                width: 180px
+                +screen(m)
+                    width: 140px
+                    order: 1
+                img
+                    width: 100%
             span.adress
-                font-size: 18px
+                +font(16px, 18px)
                 text-transform: uppercase
             div.contacts
                 display: grid
                 a.phone
-                    font-size: 24px
+                    +font(18px, 24px)
 
         div.services_private,
         div.services_business

@@ -1,12 +1,5 @@
 section.main
-    color: white
-    height: 100vh
-    background: #151515
     margin-bottom: var(--section-gap)
-
-    div.container
-        position: relative
-        grid-column: full
 
     div.swiper
         width: 100%
@@ -21,19 +14,6 @@ section.main
             padding-top: var(--section-gap)
             padding-bottom: var(--section-gap)
 
-        div.text
-            display: grid
-            justify-items: center
-            text-align: center
-            grid-gap: var(--text-gap-big)
-            padding-left: var(--gap)
-            padding-right: var(--gap)
-            div.title
-                display: grid
-                grid-gap: 10px
-            span
-                max-width: 640px
-
         img
             position: absolute
             top: 0
@@ -44,7 +24,6 @@ section.main
             z-index: -1
 
     div.swiper-pagination
-        pointer-events: none
         position: absolute
         top: 50%
         bottom: unset
@@ -55,9 +34,9 @@ section.main
         padding-left: var(--gap)
         padding-right: var(--gap)
         transform: translateX(50%)
-        display: grid
+        grid-auto-flow: row
         justify-items: end
-        grid-gap: var(--text-gap-small)
+        opacity: 0
         +screen(m)
             grid-auto-flow: column
             grid-auto-columns: max-content
@@ -65,25 +44,6 @@ section.main
             bottom: 40px
             width: max-content
         span
-            pointer-events: auto
-            opacity: 1
             background: white
-            width: 5px
-            height: 5px
             &::after
-                content: ''
-                display: block
-                margin-left: -9px
-                margin-top: -9px
-                width: 21px
-                height: 21px
                 border: 1px solid white
-                border-radius: 999px
-                opacity: 0
-            &.swiper-pagination-bullet-active
-                &::after
-                    opacity: 1
-
-    button
-        background: white
-        color: black

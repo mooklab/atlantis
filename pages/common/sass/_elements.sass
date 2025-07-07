@@ -4,10 +4,16 @@ h1, h2, h3, h4, h5
         font-weight: inherit
         line-height: inherit
     b
-        opacity: 0.5
         font-size: inherit
         font-weight: inherit
         line-height: inherit
+
+        color: transparent
+        background-position: 100%
+        background-size: 200% 100%
+        background-clip: text
+        -webkit-background-clip: text
+        background-image: linear-gradient(90deg, rgba(0,0,0,0.3) 50%, rgba(0,0,0,1) 50%)
 
 h1
     +font(32px, 64px)
@@ -161,3 +167,28 @@ div.gallery
 
 div.swiper
     user-select: none
+
+div.swiper-pagination
+    pointer-events: none
+    display: grid
+    grid-auto-flow: column
+    grid-gap: var(--text-gap-small)
+    span
+        pointer-events: auto
+        opacity: 1
+        background: #151515
+        width: 5px
+        height: 5px
+        &::after
+            content: ''
+            display: block
+            margin-left: -9px
+            margin-top: -9px
+            width: 21px
+            height: 21px
+            border: 1px solid #151515
+            border-radius: 999px
+            opacity: 0
+        &.swiper-pagination-bullet-active
+            &::after
+                opacity: 1

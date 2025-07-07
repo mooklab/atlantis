@@ -113,7 +113,6 @@ section.content
                     width: 100%
 
         div.swiper-pagination
-            pointer-events: none
             position: relative
             top: 0
             bottom: unset
@@ -121,28 +120,8 @@ section.content
             right: unset
             width: 100%
             height: max-content
-            display: grid
-            grid-auto-flow: column
             justify-content: center
             align-items: end
-            grid-gap: var(--text-gap-small)
             margin-top: calc(60px + 5px)
-            span
-                pointer-events: auto
-                opacity: 1
-                background: #151515
-                width: 5px
-                height: 5px
-                &::after
-                    content: ''
-                    display: block
-                    margin-left: -9px
-                    margin-top: -9px
-                    width: 21px
-                    height: 21px
-                    border: 1px solid #151515
-                    border-radius: 999px
-                    opacity: 0
-                &.swiper-pagination-bullet-active
-                    &::after
-                        opacity: 1
+            +screen(m)
+                margin-top: calc(40px + 5px)

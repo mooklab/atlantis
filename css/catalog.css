@@ -13,6 +13,44 @@ section.main div.container {
   justify-items: center;
   z-index: 1;
 }
+section.main div.contacts {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  width: 100%;
+}
+@media (max-width: 480px) {
+  section.main div.contacts {
+    grid-template-columns: 1fr;
+  }
+}
+section.main div.contacts div.adress,
+section.main div.contacts div.socials,
+section.main div.contacts button {
+  grid-column: 2 span;
+}
+@media (max-width: 480px) {
+  section.main div.contacts div.adress,
+  section.main div.contacts div.socials,
+  section.main div.contacts button {
+    grid-column: 1 span;
+  }
+}
+section.main div.contacts span {
+  opacity: 0.5;
+}
+section.main div.contacts div {
+  display: grid;
+  grid-gap: 10px;
+}
+section.main div.contacts div.socials {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  grid-gap: 30px;
+}
 section.main div.text {
   display: grid;
   justify-items: center;
@@ -29,8 +67,15 @@ section.main div.text div.title {
   justify-items: center;
   grid-gap: 10px;
 }
+section.main div.text h1 b {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(255, 255, 255, 0.5)), color-stop(50%, rgb(255, 255, 255)));
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5) 50%, rgb(255, 255, 255) 50%);
+}
 section.main div.text span {
   max-width: 640px;
+}
+section.main div.text > * {
+  opacity: 0;
 }
 section.main img.background {
   position: absolute;
@@ -152,17 +197,12 @@ section.services div.swiper-slide img {
   z-index: -1;
 }
 section.services div.swiper-pagination {
-  pointer-events: none;
   position: absolute;
   top: unset;
   bottom: 60px;
   left: 50%;
   right: unset;
   width: unset;
-  display: grid;
-  grid-auto-flow: column;
-  justify-items: end;
-  grid-gap: var(--text-gap-small);
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -173,25 +213,10 @@ section.services div.swiper-pagination {
   }
 }
 section.services div.swiper-pagination span {
-  pointer-events: auto;
-  opacity: 1;
   background: white;
-  width: 5px;
-  height: 5px;
 }
 section.services div.swiper-pagination span::after {
-  content: "";
-  display: block;
-  margin-left: -9px;
-  margin-top: -9px;
-  width: 21px;
-  height: 21px;
   border: 1px solid white;
-  border-radius: 999px;
-  opacity: 0;
-}
-section.services div.swiper-pagination span.swiper-pagination-bullet-active::after {
-  opacity: 1;
 }
 
 section.advantages {
@@ -279,7 +304,6 @@ section.advantages div.swiper-slide-active div.text {
   opacity: 1;
 }
 section.advantages div.swiper-pagination {
-  pointer-events: none;
   position: absolute;
   top: 0;
   bottom: unset;
@@ -287,15 +311,12 @@ section.advantages div.swiper-pagination {
   right: unset;
   width: 100%;
   aspect-ratio: 2/1;
-  display: grid;
-  grid-auto-flow: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
-  grid-gap: var(--text-gap-small);
   margin-top: 65px;
 }
 @media (max-width: 960px) {
@@ -307,27 +328,6 @@ section.advantages div.swiper-pagination {
   section.advantages div.swiper-pagination {
     aspect-ratio: 4/3;
   }
-}
-section.advantages div.swiper-pagination span {
-  pointer-events: auto;
-  opacity: 1;
-  background: #151515;
-  width: 5px;
-  height: 5px;
-}
-section.advantages div.swiper-pagination span::after {
-  content: "";
-  display: block;
-  margin-left: -9px;
-  margin-top: -9px;
-  width: 21px;
-  height: 21px;
-  border: 1px solid #151515;
-  border-radius: 999px;
-  opacity: 0;
-}
-section.advantages div.swiper-pagination span.swiper-pagination-bullet-active::after {
-  opacity: 1;
 }
 
 section.gallery {
@@ -438,6 +438,13 @@ section.faq div.load {
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 15px;
+}
+section.faq div.load img {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+section.faq div.load:hover img {
+  rotate: 360deg;
 }
 
 section.services {

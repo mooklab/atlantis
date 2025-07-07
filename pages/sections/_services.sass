@@ -77,36 +77,16 @@ section.services
             z-index: -1
 
     div.swiper-pagination
-        pointer-events: none
         position: absolute
         top: unset
         bottom: 60px
         left: 50%
         right: unset
         width: unset
-        display: grid
-        grid-auto-flow: column
-        justify-items: end
-        grid-gap: var(--text-gap-small)
         transform: translateX(-50%)
         +screen(m)
             bottom: 40px
         span
-            pointer-events: auto
-            opacity: 1
             background: white
-            width: 5px
-            height: 5px
             &::after
-                content: ''
-                display: block
-                margin-left: -9px
-                margin-top: -9px
-                width: 21px
-                height: 21px
                 border: 1px solid white
-                border-radius: 999px
-                opacity: 0
-            &.swiper-pagination-bullet-active
-                &::after
-                    opacity: 1
