@@ -1,0 +1,53 @@
+section[data-dialog=consulting]
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    height: 100vh
+    width: 100%
+    background: rgba(0,0,0,0.75)
+    backdrop-filter: blur(10px)
+    color: white
+    z-index: 1150
+    opacity: 0
+    pointer-events: none
+    transition: opacity 0.5s
+
+    img.cross
+        cursor: pointer
+        position: fixed
+        right: calc(var(--gap) + 10px)
+        top: var(--gap)
+        transition: all 0.3s
+        &:hover
+            transform: rotate(180deg)
+
+    &.open
+        opacity: 1
+        pointer-events: auto
+
+    div.container
+        display: grid
+        align-content: center
+        justify-items: center
+        text-align: center
+        height: 100%
+        grid-gap: 30px
+        padding: var(--block-gap)
+        box-sizing: border-box
+
+    form
+        display: grid
+        justify-items: center
+        grid-gap: 20px
+        width: 100%
+
+        input
+            width: 100%
+            max-width: 420px
+
+        button
+            margin-top: 30px
+            justify-self: center
+            background: white
+            color: #151515

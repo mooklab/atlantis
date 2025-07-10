@@ -173,8 +173,6 @@ accordions.forEach(element => {
 
 
 
-
-
 window.onload = () => {
 
     /*
@@ -204,10 +202,6 @@ window.onload = () => {
             gsap.fromTo(element, { opacity: 0, y: 50, duration: 1 }, { opacity: 1, y: 0, duration: 1 }, "-=0.9")
         })
     })
-
-
-
-
 
 
     titles = document.querySelectorAll('h2 b, h3 b, h4 b, h5 b')
@@ -378,4 +372,53 @@ window.onload = () => {
         }
     })
 
+
+    const [line1, line2, line3] = document.querySelectorAll('header div.menu div.icon div')
+    gsap.to(line1, {
+        y: '-7px',
+        delay: 0.5
+    })
+    gsap.to(line3, {
+        y: '7px',
+        delay: 0.5
+    })
+
+
+}
+
+
+
+
+const [line1, line2, line3] = document.querySelectorAll('header div.menu div.icon div')
+const menuDialog = document.querySelector('section[data-dialog=menu]')
+const menuDialogTimeline = gsap.timeline({ paused: true });
+const menuIconTimeline = gsap.timeline({ paused: true });
+
+menuDialogTimeline.to(menuDialog, {
+    left: 0,
+    duration: 0.5
+}).from(menuDialog.querySelectorAll('li'), {
+    x: -100,
+    opacity: 0,
+    duration: 0.3,
+    stagger: 0.1
+})
+
+menuIconTimeline.to(line1, { y: 0 })
+menuIconTimeline.to(line3, { y: 0 }, 0)
+menuIconTimeline.to(line3, { opacity: 0, duration: 0.1 })
+menuIconTimeline.to(line1, { rotate: '45deg', delay: 0.5 }, 0)
+menuIconTimeline.to(line2, { rotate: '-45deg', delay: 0.5 }, 0)
+
+const menuOpen = (element) => {
+    element.classList.toggle('open')
+    element.classList.contains('open') ? menuDialogTimeline.play() : menuDialogTimeline.reverse()
+    element.classList.contains('open') ? menuIconTimeline.play() : menuIconTimeline.reverse()
+}
+
+
+
+const consulting = () => {
+    dialog = document.querySelector('section[data-dialog=consulting]')
+    dialog.classList.toggle('open')
 }

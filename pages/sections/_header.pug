@@ -1,9 +1,12 @@
 header
     div.container
 
-        div.menu
+        div(onclick="menuOpen(this)").menu
             span Меню
-            include ../../images/menu.svg
+            div.icon
+                div
+                div
+                div
 
         a(href="index.html").logotype
             img(src="images/logotype_light.svg", alt="")

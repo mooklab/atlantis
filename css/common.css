@@ -283,6 +283,12 @@ h5 {
   }
 }
 
+input {
+  border-bottom: 1px solid white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 span.large {
   font-size: 18px;
 }
@@ -532,6 +538,112 @@ dialog::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+dialog div.container {
+  background: white;
+  padding: 40px;
+}
+
+section[data-dialog=menu] {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -50vw;
+  height: 100vh;
+  width: 50vw;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: white;
+  z-index: 1050;
+}
+@media (max-width: 960px) {
+  section[data-dialog=menu] {
+    left: -100vw;
+    width: 100vw;
+  }
+}
+section[data-dialog=menu] div.container {
+  height: 100%;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  text-align: right;
+  padding: 60px;
+}
+section[data-dialog=menu] ul {
+  display: grid;
+  grid-gap: 20px;
+}
+section[data-dialog=menu] ul a.underline:after {
+  background: white;
+}
+
+section[data-dialog=consulting] {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: white;
+  z-index: 1150;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+section[data-dialog=consulting] img.cross {
+  cursor: pointer;
+  position: fixed;
+  right: calc(var(--gap) + 10px);
+  top: var(--gap);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+section[data-dialog=consulting] img.cross:hover {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+section[data-dialog=consulting].open {
+  opacity: 1;
+  pointer-events: auto;
+}
+section[data-dialog=consulting] div.container {
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  text-align: center;
+  height: 100%;
+  grid-gap: 30px;
+  padding: var(--block-gap);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+section[data-dialog=consulting] form {
+  display: grid;
+  justify-items: center;
+  grid-gap: 20px;
+  width: 100%;
+}
+section[data-dialog=consulting] form input {
+  width: 100%;
+  max-width: 420px;
+}
+section[data-dialog=consulting] form button {
+  margin-top: 30px;
+  justify-self: center;
+  background: white;
+  color: #151515;
+}
 
 footer {
   padding-top: 80px;
@@ -653,7 +765,6 @@ header {
   padding-top: 30px;
   padding-bottom: 30px;
   position: absolute;
-  z-index: 9;
 }
 header div.container {
   display: grid;
@@ -679,8 +790,10 @@ header div.container {
   }
 }
 header a.logotype {
+  position: relative;
   opacity: 0;
   width: 180px;
+  z-index: 100;
 }
 @media (max-width: 960px) {
   header a.logotype {
@@ -694,6 +807,7 @@ header a.logotype img {
   width: 100%;
 }
 header div.menu {
+  cursor: pointer;
   opacity: 0;
   display: grid;
   -webkit-box-pack: start;
@@ -705,6 +819,8 @@ header div.menu {
           align-items: center;
   text-transform: uppercase;
   grid-gap: 15px;
+  position: relative;
+  z-index: 1100;
 }
 @media (max-width: 960px) {
   header div.menu {
@@ -712,6 +828,23 @@ header div.menu {
         -ms-flex-order: 3;
             order: 3;
   }
+}
+header div.menu div.icon {
+  width: 35px;
+}
+header div.menu div.icon div {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: white;
+}
+header div.menu div.icon div:nth-child(1) {
+  top: 1px;
+}
+header div.menu div.icon div:nth-child(3) {
+  top: -1px;
+  width: 66%;
+  left: 34%;
 }
 header div.contacts {
   opacity: 0;
@@ -726,6 +859,7 @@ header div.contacts {
       -ms-flex-pack: end;
           justify-content: end;
   grid-gap: 30px;
+  z-index: 100;
 }
 @media (max-width: 960px) {
   header div.contacts {

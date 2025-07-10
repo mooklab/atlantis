@@ -6,7 +6,7 @@ mixin slide(image, title, subtitle, text)
                 h4= subtitle
             if text
                 span.medium= text
-            button Забронировать консультацию
+            button(onclick="consulting()") Забронировать консультацию
         img(src=image)
 
 section.main

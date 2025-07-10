@@ -3,7 +3,6 @@ header
     padding-top: 30px
     padding-bottom: 30px
     position: absolute
-    z-index: 9
 
     div.container
         display: grid
@@ -16,8 +15,10 @@ header
             grid-template-columns: repeat(2, max-content)
 
     a.logotype
+        position: relative
         opacity: 0
         width: 180px
+        z-index: 100
         +screen(m)
             width: 140px
             order: 1
@@ -25,6 +26,7 @@ header
             width: 100%
 
     div.menu
+        cursor: pointer
         opacity: 0
         display: grid
         justify-content: start
@@ -32,8 +34,24 @@ header
         align-items: center
         text-transform: uppercase
         grid-gap: 15px
+        position: relative
+        z-index: 1100
         +screen(m)
             order: 3
+
+        div.icon
+            width: 35px
+            div
+                position: relative
+                width: 100%
+                height: 1px
+                background: white
+                &:nth-child(1)
+                    top: 1px
+                &:nth-child(3)
+                    top: -1px
+                    width: 66%
+                    left: 34%
 
     div.contacts
         opacity: 0
@@ -43,6 +61,7 @@ header
         grid-auto-columns: max-content
         justify-content: end
         grid-gap: 30px
+        z-index: 100
         +screen(m)
             order: 2
         +screen(xs)

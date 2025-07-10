@@ -1,0 +1,29 @@
+section[data-dialog=menu]
+    display: block
+    position: fixed
+    top: 0
+    left: -50vw
+    height: 100vh
+    width: 50vw
+    background: rgba(0,0,0,0.5)
+    backdrop-filter: blur(10px)
+    color: white
+    z-index: 1050
+    +screen(m)
+        left: -100vw
+        width: 100vw
+
+    div.container
+        height: 100%
+        display: grid
+        align-items: center
+        justify-content: end
+        text-align: right
+        padding: 60px
+
+    ul
+        display: grid
+        grid-gap: 20px
+
+        a.underline:after
+            background: white

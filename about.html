@@ -29,17 +29,17 @@
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-        <script defer src="scripts/main.js"></script>
+        <script defer src="scripts/main.min.js"></script>
     </head>
     <body>
         <header>
             <div class="container">
-                <div class="menu"><span>Меню</span><svg width="35" height="16" viewBox="0 0 35 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1H35" stroke="white"/>
-<path d="M0 8H35" stroke="white"/>
-<path d="M13 15L35 15" stroke="white"/>
-</svg>
-
+                <div class="menu" onclick="menuOpen(this)"><span>Меню</span>
+                    <div class="icon">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div><a class="logotype" href="index.html"><img src="images/logotype_light.svg" alt=""></a>
                 <div class="contacts"><a href="tel:880055566633">8 800 555-44-33</a><a href=""><img src="images/telegram.svg" alt=""></a><a href=""><img src="images/whatsapp.svg" alt=""></a></div>
             </div>
@@ -295,7 +295,7 @@
                         <div class="contacts"><a class="email underline" href="mailto:atlantis@info.com">atlantis@info.com</a><a class="phone" href="tel:880055544433">8 800 555-44-33</a></div>
                     </div>
                     <div class="services_private"><a href="catalog.html">
-                            <h4>Частный страховой бутик</h4></a>
+                            <h4>Услуги для частных клиентов</h4></a>
                         <ul> 
                             <li><a class="underline" href="category.html">Страхование премиального транспорта</a></li>
                             <li><a class="underline" href="category.html">Страхование недвижимости</a></li>
@@ -305,7 +305,7 @@
                         </ul>
                     </div>
                     <div class="services_business"><a href="catalog.html">
-                            <h4>Брокерская деятельность по корпоративному страхованию</h4></a>
+                            <h4>Услуги для бизнеса</h4></a>
                         <ul> 
                             <li><a class="underline" href="category.html">Страхование имущества</a></li>
                             <li><a class="underline" href="category.html">Страхование ответственности</a></li>
@@ -333,5 +333,33 @@
                 <div class="bottom"><span>© 2025. Все права защищены</span><a class="underline" href="index.html">Политика конфиденциальности</a><a class="underline" href="index.html">Пользовательское соглашение</a></div>
             </div>
         </footer>
+        <section data-dialog="menu">
+            <div class="container">
+                <ul> 
+                    <li><a class="underline" href="index.html">
+                            <h4>Главная</h4></a></li>
+                    <li><a class="underline" href="about.html">
+                            <h4>О Компании</h4></a></li>
+                    <li><a class="underline" href="blog.html">
+                            <h4>Блог</h4></a></li>
+                    <li><a class="underline" href="contacts.html">
+                            <h4>Контакты</h4></a></li>
+                    <li><a class="underline" href="catalog.html">
+                            <h4>Услуги для частных клиентов</h4></a></li>
+                    <li><a class="underline" href="catalog.html">
+                            <h4>Услуги для бизнеса</h4></a></li>
+                </ul>
+            </div>
+        </section>
+        <section data-dialog="consulting"><img class="cross" src="images/cross.svg" alt="" onclick="consulting()">
+            <div class="container">
+                <h1>Забронировать <br>консультацию</h1>
+                <form>
+                    <input type="text" placeholder="Как к Вам обращаться?">
+                    <input type="text" placeholder="8 (___) ___-__-__">
+                    <button>Забронировать</button>
+                </form>
+            </div>
+        </section>
     </body>
 </html>
